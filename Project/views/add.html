@@ -1,0 +1,41 @@
+<div class="jumbotron div_add_jumberton">
+  <button type="button" class="btn btn-success seeList">Voir la liste</button>
+  {{#validate}}
+  <div class="alert alert-dismissible alert-info">
+    {{validate}}
+  </div>
+  {{/validate}}
+  <form method="POST" action="add">
+    {{#error}}
+    <div class="alert alert-dismissible alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Warning!</h4>
+      <p class="mb-0">{{error}}</p>
+    </div>
+    {{/error}}
+    <fieldset>
+      <legend>Ajouter un élément</legend>
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="txt" class="form-control" id="name" name="name" placeholder="Entrer un nom" value="{{valueName}}">
+        {{#errorName}}
+          {{messageName}}
+        {{/errorName}}
+      </div>
+      <div class="form-group">
+        <label for="inputPrice">Prix (€)</label>
+        <input type="number" class="form-control" name="priceEur" id="inputPrice" placeholder="Prix" value="{{valuePrice}}">
+        {{#errorPrice}}
+          {{messagePrice}}
+        {{/errorPrice}}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>
+</div>
+
+<script>
+  $('.seeList').on('click', function(){
+    window.location.href="/list"
+  })
+</script>

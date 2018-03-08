@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+  server:
+    image: node:carbon
+    command: npx nodemon index.js
+    working_dir: /app
+    ports:
+      - '8000:8000'
+    volumes: 
+      - ./Project:/app
+  browser:
+    image: node:carbon
+    working_dir: /app
+    user: '1000:1000'
+    command: >
+      npx browser-sync start
+      --proxy "server:8000"
+      --no-notify
+      --files "**/*"
+      --no-open
+    volumes:
+      - ./Project:/app
+    ports:
+      - '3000:3000'
