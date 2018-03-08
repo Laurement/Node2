@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th scope="col">Nom</th>
-      <th scope="col">Prix (€)</th>
+      <th scope="col">Prix</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -23,7 +23,10 @@
     {{#allCurrency}}
       <a href="/list/{{.}}" >{{.}}<a/>&nbsp;/&nbsp;
     {{/allCurrency}}
+
+    {{#visibleButtonEuro}}
     <br /><br /><br /><button type="button" class="btn btn-info" onclick="window.location='/list';" >Devise initial : Euro</button>
+    {{/visibleButtonEuro}}
   </div>
 
 </div>

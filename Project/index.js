@@ -91,7 +91,9 @@ app.get('/list', (req, res) => {
           },
           currency : "EUR",
           allCurrency: tabCurrency,
-          Pagelist: data
+          Pagelist: data,
+          visibleButtonEuro: false
+
         })
       }else {
         res.render('layout', {
@@ -150,6 +152,7 @@ app.get('/list/:currency', (req, res) => {
               currency : req.params.currency,
               Pagelist: data,
               allCurrency: tabCurrency,
+              visibleButtonEuro: true,
             })
           })
           .catch(err => {
